@@ -99,11 +99,13 @@ h2 > span {
 /** CARD **/
 .card {
   box-shadow: 0 0 10px var(--accent-color-2);
+  height: 95%;
 }
 
 .card-img-top {
   padding: 10px;
   transition: image 1.8s ease-in;
+  height: 100%;
 }
 
 .card-img-top:hover {
@@ -142,6 +144,11 @@ h2 > span {
 .movies-list {
   padding-left: 0;
 }
+
+.movies-list > li {
+  min-height: 500px;
+}
+
 
 /** Card End **/
 
