@@ -44,6 +44,7 @@ body {
 h2 > span {
   color: var(--accent-color);
 }
+
 .caption {
   color: var(--white);
   padding-top: 10px;
@@ -82,6 +83,7 @@ h2 > span {
 .search_movie:focus {
   border: 2px solid var(--accent-color);
 }
+
 /** **/
 
 /* Main General styles */
@@ -92,7 +94,7 @@ h2 > span {
   border-radius: 10px;
 }
 
-/***Main styling end*/
+/***  Main styling end */
 
 /** CARD **/
 .card {
@@ -105,7 +107,7 @@ h2 > span {
 }
 
 .card-img-top:hover {
-  padding: 0px;
+  padding: 0;
 }
 
 .btn-primary {
@@ -138,12 +140,12 @@ h2 > span {
 }
 
 .movies-list {
-  padding-left: 0px;
+  padding-left: 0;
 }
 
 /** Card End **/
 
-/***Footer styling ***/
+/*** Footer styling ***/
 footer {
   color: var(--accent-color-2);
   margin-top: 2rem;
@@ -151,13 +153,14 @@ footer {
 
 footer ul {
   list-style: none;
-  padding-left: 0px;
+  padding-left: 0;
 }
 
 .block {
   padding: 30px 0;
   margin-bottom: 30px;
 }
+
 .block-title {
   font-weight: 300;
 }
@@ -186,6 +189,7 @@ footer input[type='text']:focus {
   box-shadow: 0 0 10px var(--accent-color);
   outline: none;
 }
+
 /*** Footer styling end **/
 
 /*** Modal Start ***/
@@ -208,7 +212,7 @@ footer input[type='text']:focus {
   color: var(--white);
   align-items: center;
   border: solid 10px var(--neutral-color-2);
-  border-radius: none;
+  border-radius: 0;
 }
 
 .commentSection {
@@ -226,7 +230,7 @@ footer input[type='text']:focus {
 
 .listComments {
   list-style: none;
-  padding-left: 0px;
+  padding-left: 0;
   max-height: 300px;
   overflow-y: auto;
 }
@@ -246,6 +250,7 @@ footer input[type='text']:focus {
 .btn-close {
   float: right;
 }
+
 /** Modal end **/
 
 @media (min-width: 768px) {

@@ -1,5 +1,3 @@
-const presentUI = () => {
-  return '<p> Hello from PresentUI </p>';
-};
+const presentUI = () => '<p> Hello from PresentUI </p>';
 
 export default presentUI;
