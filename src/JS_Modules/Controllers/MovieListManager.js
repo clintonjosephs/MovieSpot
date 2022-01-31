@@ -28,7 +28,7 @@ const movieItems = (showDetails) => {
                     <img src="${showDetails?.image?.medium ?? 'https://www.freeiconspng.com/uploads/no-image-icon-23.jpg'}" class="card-img-top" alt="${showDetails?.name}">
                     <div class="card-body">
                         <div class="card-title">
-                            <h6>${showDetails?.name ?? "No name" }</h6>
+                            <h6>${showDetails.name.length <= 14 ? showDetails?.name ?? "No name" : showDetails.name.substr(0,18)+"..." }</h6>
                             <span>
                                 <i class="fa fa-thumbs-up"></i> &nbsp; 8 Likes
                             </span>
