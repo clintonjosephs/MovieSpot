@@ -1,12 +1,15 @@
 import { getMovies } from "../Models/Services";
+import { overlayHandler } from "./SpinnersHandler";
 
 const MoviesListManager = async () => {
+    overlayHandler(true);
     const items = ['a', 'b', 'c', 'd', 'e'];
     const index = Math.floor(Math.random() * 4);
 
     const moviesFetch = await getMovies(items[index]);
     const moviesData = buildMovieList(moviesFetch);
     const moviesList = document.querySelector(".movies-list");
+    overlayHandler(false);
     moviesList.innerHTML = moviesData;
 }
 
@@ -30,7 +33,7 @@ const movieItems = (showDetails) => {
                         <div class="card-title">
                             <h6>${showDetails.name.length <= 14 ? showDetails?.name ?? "No name" : showDetails.name.substr(0,18)+"..." }</h6>
                             <span>
-                                <i class="fa fa-thumbs-up"></i> &nbsp; 8 Likes
+                                <i class="fa fa-thumbs-up"></i> &nbsp; <span id="likeNum">0</span> Likes
                             </span>
                         </div>
                     <button type="button" class="btn btn-primary commentsModalBtn" data-toggle="modal" data-target=".comment-modal-lg" data-movie-id="${showDetails?.externals?.tvrage}">Comments</button>

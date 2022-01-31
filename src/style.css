@@ -147,8 +147,17 @@ h2 > span {
 
 .movies-list > li {
   min-height: 500px;
+  animation: createBox 2s;
 }
 
+@keyframes createBox {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
 
 /** Card End **/
 
