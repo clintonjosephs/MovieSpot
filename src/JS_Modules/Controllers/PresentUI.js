@@ -4,7 +4,7 @@ import header from '../Views/Header.js';
 import moviesList from '../Views/MoviesList.js';
 import commentsModalHandler from './ModalHandler.js';
 import MoviesListManager from './MovieListManager.js';
-import searchBar from './searchBar.js';
+import searchBar from './SearchBar.js';
 
 const presentUI = async () => {
   document.body.insertAdjacentHTML('afterbegin', header());
@@ -12,7 +12,7 @@ const presentUI = async () => {
   main.innerHTML = moviesList();
   document.body.insertAdjacentHTML('beforeend', footer());
   document.body.insertAdjacentHTML('beforeend', commentsModal());
-  
+
   await MoviesListManager();
 
   const commentsModalBtn = document.querySelectorAll('.commentsModalBtn');
@@ -24,8 +24,7 @@ const presentUI = async () => {
   });
 
   const searchForm = document.querySelector('.searchMovie');
-  searchForm.addEventListener("submit", (e) => { e.preventDefault(); searchBar(searchForm); });
-
+  searchForm.addEventListener('submit', (e) => { e.preventDefault(); searchBar(searchForm); });
 };
 
 export default presentUI;

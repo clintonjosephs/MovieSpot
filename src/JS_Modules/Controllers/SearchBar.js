@@ -1,20 +1,19 @@
-import { getMovies } from "../Models/Services";
-import ListRender from "./ListRender";
-import { searchSpinners } from "./SpinnersHandler";
+import { getMovies } from '../Models/Services.js';
+import ListRender from './ListRender.js';
+import { searchSpinners } from './SpinnersHandler.js';
 
 const searchBar = async (searchForm) => {
-    if (searchForm[0].value.trim().length > 0) {
-        searchSpinners(true);
+  if (searchForm[0].value.trim().length > 0) {
+    searchSpinners(true);
 
-        const movieTitle = searchForm[0].value.trim();
-        const moviesFetch = await getMovies(movieTitle);
+    const movieTitle = searchForm[0].value.trim();
+    const moviesFetch = await getMovies(movieTitle);
 
-        ListRender(moviesFetch);
-        searchSpinners(false);
-
-    } else {
-        searchForm.reset();
-    }
+    ListRender(moviesFetch);
+    searchSpinners(false);
+  } else {
+    searchForm.reset();
+  }
 };
 
 export default searchBar;
