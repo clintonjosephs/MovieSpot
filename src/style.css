@@ -153,6 +153,7 @@ h2 > span {
   from {
     transform: scale(0);
   }
+
   to {
     transform: scale(1);
   }
@@ -288,7 +289,7 @@ footer input[type='text']:focus {
 
 .spinner-overlay {
   align-self: center;
-  width: 5rem; 
+  width: 5rem;
   height: 5rem;
   color: var(--accent-color);
 }
