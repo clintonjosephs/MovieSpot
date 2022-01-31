@@ -12,7 +12,9 @@ const header = () => `<header class="header-section">
                 <div class="input-group">
                         <input type="text" class="form-control search_movie" id="movieTitle" placeholder="Search a movie" aria-label="Search a movie" aria-describedby="search_movie" required />
                         <div class="input-group-append">
-                        <button type="submit" class="input-group-text" id="search_movie"><i class="fa fa-film">&nbsp;</i>Search</button>
+                        <button type="submit" class="input-group-text" id="search_movie">
+                        <div class="spinner-border spinner-border-sm text-light search-spinner hide" role="status"></div>
+                        <i class="fa fa-search show">&nbsp;</i>Search</button>
                         </div>
                 </div>
             </form>

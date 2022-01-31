@@ -89,7 +89,6 @@ h2 > span {
 /* Main General styles */
 .movies {
   overflow-y: auto;
-  min-height: 95vh;
   background: white;
   border-radius: 10px;
 }
@@ -287,11 +286,19 @@ footer input[type='text']:focus {
   visibility: hidden;
 }
 
-.spinner-border {
+.spinner-overlay {
   align-self: center;
   width: 5rem; 
   height: 5rem;
   color: var(--accent-color);
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
 }
 
 /*** Loading spinner end ***/
