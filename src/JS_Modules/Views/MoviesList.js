@@ -1,5 +1,4 @@
-const moviesList = () => {
-    return `<section class="container movies">
+const moviesList = () => `<section class="container movies">
       <h4 class="text-center my-3 movieTitles">Title A: TV Shows(10)</h4>
       <ul class="movies-list">
           <li class="row">
@@ -48,7 +47,5 @@ const moviesList = () => {
           </li>
       </ul>
   </section>`;
-  };
-  
-  export default moviesList;
-  
+
+export default moviesList;

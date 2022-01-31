@@ -1,6 +1,6 @@
 const footer = () => {
-    const currentYear = new Date().getFullYear();
-    return ` <footer>
+  const currentYear = new Date().getFullYear();
+  return ` <footer>
   <div class="container">
    <div class="row">
        <div class="col-md-2 col-sm-12">
@@ -61,7 +61,6 @@ const footer = () => {
   <div> Copyright ${currentYear} Clinton Mbonu & Ahmed Tawfik | <a href="https://opensource.org/licenses/MIT" target="_blank"> MIT License </a></div>
   </div>
   </footer>`;
-  };
-  
-  export default footer;
-  
+};
+
+export default footer;
