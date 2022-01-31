@@ -1,0 +1,261 @@
+/* Google font import */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,800;1,100;1,200;1,300;1,400;1,600;1,700&display=swap');
+
+/* Reset Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Variables */
+:root {
+  --primary-color-1: #2a377f;
+  --accent-color: #f85f68;
+  --accent-color-2: #bec1c8;
+  --white: #fff;
+  --red: red;
+  --green: green;
+  --font: 'Poppins', sans-serif;
+  --black: #2a377f;
+  --neutral-color: #f85f68;
+  --neutral-color-2: #f7c3c6;
+  --neutral-color-3: #2a377f;
+}
+
+/* Global styles */
+html {
+  overflow-x: hidden;
+}
+
+body {
+  font-size: 16px;
+  font-family: var(--font);
+  background: var(--primary-color-1);
+  position: relative;
+  transition: background ease-out 1s 0.1s;
+}
+
+/** Header styling **/
+.movieTitles {
+  color: var(--black);
+}
+
+h2 > span {
+  color: var(--accent-color);
+}
+
+.caption {
+  color: var(--white);
+  padding-top: 10px;
+}
+
+.logo {
+  display: flex;
+  flex-direction: row;
+  color: var(--accent-color-2);
+  align-items: center;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.input-group-text {
+  background: var(--accent-color);
+  cursor: pointer;
+  height: 100%;
+  color: var(--white);
+  font-size: 20px;
+}
+
+.input-group-text:hover {
+  background: var(--accent-color-2);
+}
+
+.search_movie {
+  outline: none;
+  box-shadow: none;
+}
+
+.search_movie:focus {
+  border: 2px solid var(--accent-color);
+}
+
+/** **/
+
+/* Main General styles */
+.movies {
+  overflow-y: auto;
+  min-height: 95vh;
+  background: white;
+  border-radius: 10px;
+}
+
+/***  Main styling end */
+
+/** CARD **/
+.card {
+  box-shadow: 0 0 10px var(--accent-color-2);
+}
+
+.card-img-top {
+  padding: 10px;
+  transition: image 1.8s ease-in;
+}
+
+.card-img-top:hover {
+  padding: 0;
+}
+
+.btn-primary {
+  background: var(--accent-color);
+  width: 100%;
+  outline-style: none;
+  border-color: transparent;
+  box-shadow: 2px 3px var(--accent-color-2);
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+  background: var(--accent-color-2);
+  outline-style: none;
+  box-shadow: none;
+  border-color: transparent;
+}
+
+.card-title {
+  color: var(--primary-color-1);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.fa-thumbs-up:hover {
+  color: var(--accent-color);
+}
+
+.movies-list {
+  padding-left: 0;
+}
+
+/** Card End **/
+
+/*** Footer styling ***/
+footer {
+  color: var(--accent-color-2);
+  margin-top: 2rem;
+}
+
+footer ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.block {
+  padding: 30px 0;
+  margin-bottom: 30px;
+}
+
+.block-title {
+  font-weight: 300;
+}
+
+footer a {
+  text-decoration: none;
+  color: var(--accent-color-2);
+}
+
+footer a:hover {
+  color: var(--accent-color);
+}
+
+footer input[type='text'] {
+  width: 100%;
+  border: 1px solid #bec1c8;
+  background-color: transparent;
+  border-radius: 5px;
+  font-size: 15px;
+  color: inherit;
+  padding: 5px;
+  transition: 0.3s ease;
+}
+
+footer input[type='text']:focus {
+  box-shadow: 0 0 10px var(--accent-color);
+  outline: none;
+}
+
+/*** Footer styling end **/
+
+/*** Modal Start ***/
+.modal-body {
+  color: var(--neutral-color-3);
+}
+
+.modal-img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.modalBtn {
+  display: flex;
+  justify-content: center;
+  background: var(--neutral-color);
+  width: 100%;
+  height: 60px;
+  margin-top: 5px;
+  color: var(--white);
+  align-items: center;
+  border: solid 10px var(--neutral-color-2);
+  border-radius: 0;
+}
+
+.commentSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.form-control:focus {
+  border: 2px solid var(--neutral-color-2);
+  outline: none;
+  box-shadow: none;
+}
+
+.listComments {
+  list-style: none;
+  padding-left: 0;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.listComments > li {
+  border-left: solid 5px;
+  margin: 5px;
+  padding: 3px;
+  background: var(--accent-color-2);
+  word-break: break-word;
+}
+
+.modal-header {
+  width: 100%;
+}
+
+.btn-close {
+  float: right;
+}
+
+/** Modal end **/
+
+@media (min-width: 768px) {
+  .movies-list > li {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+}
