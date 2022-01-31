@@ -12,8 +12,11 @@ const presentUI = async () => {
   main.innerHTML = moviesList();
   document.body.insertAdjacentHTML('beforeend', footer());
   document.body.insertAdjacentHTML('beforeend', commentsModal());
-
+  
+  const spinner = document.querySelector('.loader');
+  spinner.style.visibility = "visible";
   await MoviesListManager();
+  spinner.style.visibility = "hidden";
   
   const commentsModalBtn = document.querySelectorAll('.commentsModalBtn');
   commentsModalBtn.forEach((button) => {

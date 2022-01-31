@@ -260,6 +260,33 @@ footer input[type='text']:focus {
 
 /** Modal end **/
 
+/*** Loading spinner start **/
+.loader {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  backdrop-filter: blur(6px);
+  background: var(--neutral-color-3);
+  opacity: 0.8;
+  overflow-x: hidden;
+  transition: 0.5s;
+  visibility: hidden;
+}
+
+.spinner-border {
+  align-self: center;
+  width: 5rem; 
+  height: 5rem;
+  color: var(--accent-color);
+}
+
+/*** Loading spinner end ***/
+
 @media (min-width: 768px) {
   .movies-list > li {
     margin-left: 5%;
