@@ -89,7 +89,6 @@ h2 > span {
 /* Main General styles */
 .movies {
   overflow-y: auto;
-  min-height: 95vh;
   background: white;
   border-radius: 10px;
 }
@@ -99,11 +98,13 @@ h2 > span {
 /** CARD **/
 .card {
   box-shadow: 0 0 10px var(--accent-color-2);
+  height: 95%;
 }
 
 .card-img-top {
   padding: 10px;
   transition: image 1.8s ease-in;
+  height: 100%;
 }
 
 .card-img-top:hover {
@@ -141,6 +142,21 @@ h2 > span {
 
 .movies-list {
   padding-left: 0;
+}
+
+.movies-list > li {
+  min-height: 500px;
+  animation: createBox 2s;
+}
+
+@keyframes createBox {
+  from {
+    transform: scale(0);
+  }
+
+  to {
+    transform: scale(1);
+  }
 }
 
 /** Card End **/
@@ -252,6 +268,41 @@ footer input[type='text']:focus {
 }
 
 /** Modal end **/
+
+/*** Loading spinner start **/
+.loader {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  backdrop-filter: blur(6px);
+  background: var(--neutral-color-3);
+  opacity: 0.8;
+  overflow-x: hidden;
+  transition: 0.5s;
+  visibility: hidden;
+}
+
+.spinner-overlay {
+  align-self: center;
+  width: 5rem;
+  height: 5rem;
+  color: var(--accent-color);
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
+/*** Loading spinner end ***/
 
 @media (min-width: 768px) {
   .movies-list > li {
