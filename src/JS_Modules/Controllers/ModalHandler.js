@@ -2,6 +2,7 @@ import { Modal } from 'bootstrap/dist/js/bootstrap.bundle.js';
 import { getMoviePopupDetails } from '../Models/Services.js';
 
 const presentModalData = (modalData) => `<div class="col-md-4">
+      <div id="movieID" hidden>${modalData.id}</div>
       <img
         src="${
   modalData.image?.medium
@@ -53,6 +54,7 @@ const commentsModalHandler = async (movieID, button) => {
   button.innerHTML = "<div class='spinner-border spinner-border-sm text-light' role='status'></div> loading ...";
   button.disabled = true;
   const getData = await getMoviePopupDetails(movieID);
+
   const modalBody = presentModalData(getData);
   const commentsModalHTML = document.querySelector('.comments_modal');
   const modalBodyGet = document.querySelector('.movie-data');

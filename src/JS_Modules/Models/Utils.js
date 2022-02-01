@@ -5,5 +5,9 @@ const getSingleMovieEndPoint = 'shows/';
 const involvmentApiEndPoint = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/W9LtdOzBoZfxFshRZlqy/';
 
 export {
-  BaseUrl, contentType, getMoviesEndPoint, getSingleMovieEndPoint, involvmentApiEndPoint,
+  BaseUrl,
+  contentType,
+  getMoviesEndPoint,
+  getSingleMovieEndPoint,
+  involvmentApiEndPoint,
 };
