@@ -72,7 +72,7 @@ const ListRender = async (moviesFetch, title) => {
   moviesList.innerHTML = movieBuilder;
 
   const count = Count(moviesFetch);
-  const domMovieTitles = document.querySelector(".movieTitles");
+  const domMovieTitles = document.querySelector('.movieTitles');
   domMovieTitles.innerHTML = `Title ${title.toUpperCase()}: TV Shows(${count})`;
   commentClickEvent();
   likeClickEvent();

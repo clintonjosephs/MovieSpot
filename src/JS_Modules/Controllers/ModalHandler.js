@@ -40,14 +40,14 @@ const presentModalData = (modalData) => `<div class="col-md-4">
       </div>
 
       <div class="row mt-4">
-        <div class="col-md-8">Language: <b>${modalData?.language ?? "N/A"} </b></div>
+        <div class="col-md-8">Language: <b>${modalData?.language ?? 'N/A'} </b></div>
         <div class="col-md-4">Rating: <b> ${
   modalData.rating?.average ?? 'N/A'
 } </b></div>
       </div>
 
       <div class="row mt-2">
-        <div class="col-md-12">Premeired: <b>${modalData?.premiered ?? "N/A"} </b></div>
+        <div class="col-md-12">Premeired: <b>${modalData?.premiered ?? 'N/A'} </b></div>
       </div>
     </div>`;
 

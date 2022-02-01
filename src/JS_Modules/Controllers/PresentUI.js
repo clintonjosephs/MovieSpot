@@ -16,7 +16,7 @@ const presentUI = async () => {
   await MoviesListManager();
 
   addShareEvent();
-  
+
   const searchForm = document.querySelector('.searchMovie');
   searchForm.addEventListener('submit', (e) => {
     e.preventDefault();
