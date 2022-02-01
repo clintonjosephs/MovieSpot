@@ -9,7 +9,7 @@ const sendComment = async (movieID, name, comment) => {
     body: JSON.stringify({
       item_id: movieID,
       username: name,
-      comment: comment,
+      comment,
     }),
   });
 
