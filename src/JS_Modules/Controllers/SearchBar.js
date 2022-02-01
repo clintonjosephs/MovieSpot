@@ -9,7 +9,7 @@ const searchBar = async (searchForm) => {
     const movieTitle = searchForm[0].value.trim();
     const moviesFetch = await getMovies(movieTitle);
 
-    ListRender(moviesFetch);
+    ListRender(moviesFetch, movieTitle);
     searchSpinners(false);
   } else {
     searchForm.reset();
