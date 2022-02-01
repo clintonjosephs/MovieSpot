@@ -6,7 +6,6 @@ const getMovies = async (query = 'a') => {
 };
 
 const getMoviePopupDetails = async (movieID) => {
-  console.log(movieID);
   const response = await fetch(`${BaseUrl}${getSingleMovieEndPoint}${movieID}`);
   return response.json();
 };

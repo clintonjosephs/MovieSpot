@@ -1,4 +1,4 @@
-import { involvmentApiEndPoint, contentType } from "./Utils.js";
+import { involvmentApiEndPoint, contentType } from './Utils.js';
 
 const getLikesApi = async () => {
   const response = await fetch(`${involvmentApiEndPoint}likes`);
@@ -7,9 +7,9 @@ const getLikesApi = async () => {
 
 const addLikesApi = async (movieID) => {
   const response = await fetch(`${involvmentApiEndPoint}likes`, {
-    method: "POST",
+    method: 'POST',
     headers: contentType,
-    body: JSON.stringify({"item_id": movieID})
+    body: JSON.stringify({ item_id: movieID }),
   });
   return response.ok;
 };

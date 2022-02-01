@@ -1,6 +1,5 @@
-import { addLikes } from './LikeHandler.js';
+import addLikes from './LikeHandler.js';
 import commentsModalHandler from './ModalHandler.js';
-
 
 const movieItems = (showDetails) => `<div class="col-md-4 ">
                 <div class="card my-3">
