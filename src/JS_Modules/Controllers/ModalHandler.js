@@ -1,8 +1,7 @@
 import { Modal } from 'bootstrap/dist/js/bootstrap.bundle.js';
 import { getMoviePopupDetails } from '../Models/Services.js';
 
-const presentModalData = (modalData) => `   <div class="row">
-    <div class="col-md-4">
+const presentModalData = (modalData) => `<div class="col-md-4">
       <img
         src="${
   modalData.image?.medium
@@ -13,7 +12,7 @@ const presentModalData = (modalData) => `   <div class="row">
       />
       <br />
       <a href="${
-  modalData.url
+  modalData?.url ?? '#'
 }" target="_blank" type="button" class="btn modalBtn">
         Download &nbsp <i class="fa fa-download"></i>
       </a>
@@ -22,7 +21,7 @@ const presentModalData = (modalData) => `   <div class="row">
       <h3>${modalData.name}</h3>
       <div class="row mt-2">
         <div class="col-md-8">
-          Genre: <b>${modalData.genres.toString()} </b>
+          Genre: <b>${modalData?.genres.toString() ?? 'N/A'} </b>
         </div>
         <div class="col-md-4">Year: <b> ${modalData.premiered.substring(
     0,
@@ -33,7 +32,7 @@ const presentModalData = (modalData) => `   <div class="row">
       <div class="row mt-2">
         <div class="col-md-12">
           Summary:
-          ${modalData?.summary.substr(0, 200) ?? 'No Summary'} 
+          ${modalData.summary?.substr(0, 200) ?? 'N/A'} 
         
         </div> 
       </div>
@@ -48,10 +47,11 @@ const presentModalData = (modalData) => `   <div class="row">
       <div class="row mt-2">
         <div class="col-md-12">Premeired: <b>${modalData.premiered} </b></div>
       </div>
-    </div>
-  </div>`;
+    </div>`;
 
-const commentsModalHandler = async (movieID) => {
+const commentsModalHandler = async (movieID, button) => {
+  button.innerHTML = "<div class='spinner-border spinner-border-sm text-light' role='status'></div> loading ...";
+  button.disabled = true;
   const getData = await getMoviePopupDetails(movieID);
   const modalBody = presentModalData(getData);
   const commentsModalHTML = document.querySelector('.comments_modal');
@@ -60,6 +60,8 @@ const commentsModalHandler = async (movieID) => {
   modalBodyGet.insertAdjacentHTML('afterbegin', modalBody);
   const commentsModal = new Modal(commentsModalHTML);
   commentsModal.show();
+  button.innerHTML = 'Comments';
+  button.disabled = false;
 };
 
 export default commentsModalHandler;

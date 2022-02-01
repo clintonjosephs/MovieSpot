@@ -29,7 +29,7 @@ const commentClickEvent = () => {
   commentsModalBtn.forEach((button) => {
     const moveID = button.getAttribute('data-movie-id');
     button.addEventListener('click', () => {
-      commentsModalHandler(moveID);
+      commentsModalHandler(moveID, button);
     });
   });
 };
