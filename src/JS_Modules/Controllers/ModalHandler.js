@@ -1,5 +1,6 @@
 import { Modal } from 'bootstrap/dist/js/bootstrap.bundle.js';
 import { getMoviePopupDetails } from '../Models/Services.js';
+import { loadingSpinners } from './SpinnersHandler.js';
 
 const presentModalData = (modalData) => `<div class="col-md-4">
       <div id="movieID" hidden>${modalData.id}</div>
@@ -51,7 +52,7 @@ const presentModalData = (modalData) => `<div class="col-md-4">
     </div>`;
 
 const commentsModalHandler = async (movieID, button) => {
-  button.innerHTML = "<div class='spinner-border spinner-border-sm text-light' role='status'></div> loading ...";
+  button.innerHTML = loadingSpinners();
   button.disabled = true;
   const getData = await getMoviePopupDetails(movieID);
 
