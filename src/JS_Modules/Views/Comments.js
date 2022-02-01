@@ -18,7 +18,7 @@ const commentsModal = () => `<div class="modal fade comments_modal" tabindex="-1
                 </ul>
             </div>
             <h5>Add a comment</h5>
-            <form id="form" class="col-md-8">
+            <form method="post" id="form" class="col-md-8">
                 <input type="text" class="form-control mt-2" id="name" placeholder="Your Name" maxlength="200" required>
                 <textarea class="form-control mt-2" id="comment" maxlength="500" placeholder="Your Insight" required></textarea>
                 <button type="submit" class="modalBtn mt-2" id="addComment"><i class="fa fa-share"></i> Share</button>
