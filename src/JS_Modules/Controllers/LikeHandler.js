@@ -1,4 +1,4 @@
-import { addLikesApi } from '../Models/InvolvementService.js';
+import { addLikesApi, getLikesApi } from '../Models/InvolvementService.js';
 
 const addLikes = async (movieID, likeCounter, likeText) => {
   const action = await addLikesApi(movieID);
@@ -12,4 +12,17 @@ const addLikes = async (movieID, likeCounter, likeText) => {
   }
 };
 
-export default addLikes;
+const getAllLikes = async (movieId) => {
+  const result = await getLikesApi();
+  const { likes } = await result.find((item) => item.item_id === movieId) ?? { likes: 0 };
+  return likes;
+};
+
+const updateLikes = async (likeNum, likeText, movieId) => {
+  const pickLikes = await getAllLikes(movieId);
+  likeNum.innerHTML = pickLikes.toString();
+  const response = pickLikes > 1 ? likeText.innerHTML = 'Likes' : likeText.innerHTML = 'Like';
+  return response;
+};
+
+export { addLikes, updateLikes };
