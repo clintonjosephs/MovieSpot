@@ -1,4 +1,4 @@
-export default movies = [
+const movies = [
   {
     score: 0.9086353,
     show: {
@@ -406,3 +406,5 @@ export default movies = [
     },
   },
 ];
+
+export default movies;
