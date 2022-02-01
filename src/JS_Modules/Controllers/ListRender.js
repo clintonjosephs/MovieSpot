@@ -50,13 +50,13 @@ const likeClickEvent = () => {
 };
 
 const loadLikes = async () => {
-  const allLikeSpan = document.querySelectorAll(".likeNum");
+  const allLikeSpan = document.querySelectorAll('.likeNum');
   allLikeSpan.forEach(async (span) => {
     const movieID = span.getAttribute('data-movie-id');
     const likeText = document.querySelector(`#likeText-${movieID}`);
     await updateLikes(span, likeText, movieID);
   });
-}
+};
 
 const ListRender = async (moviesFetch) => {
   let movieBuilder = '<li class="row">';

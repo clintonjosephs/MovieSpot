@@ -13,15 +13,16 @@ const addLikes = async (movieID, likeCounter, likeText) => {
 };
 
 const getAllLikes = async (movieId) => {
-    const result = await getLikesApi();
-    const { likes } = await result.find((item) => item.item_id === movieId) ?? { likes: 0 };
-    return likes;
-}
+  const result = await getLikesApi();
+  const { likes } = await result.find((item) => item.item_id === movieId) ?? { likes: 0 };
+  return likes;
+};
 
 const updateLikes = async (likeNum, likeText, movieId) => {
-    const pickLikes = await getAllLikes(movieId);
-    likeNum.innerHTML = pickLikes.toString();
-    return pickLikes > 1 ? likeText.innerHTML = "Likes" : likeText.innerHTML = "Like";
-}
+  const pickLikes = await getAllLikes(movieId);
+  likeNum.innerHTML = pickLikes.toString();
+  const response = pickLikes > 1 ? likeText.innerHTML = 'Likes' : likeText.innerHTML = 'Like';
+  return response;
+};
 
 export { addLikes, updateLikes };
