@@ -1,10 +1,7 @@
 import { Modal } from 'bootstrap/dist/js/bootstrap.bundle.js';
 import getMoviePopupDetails from '../Models/Services.js';
 
-// eslint-disable-next-line no-unused-vars
-// eslint-disable-next-line arrow-body-style
-const presentModalData = (modalData) => {
-  return `   <div class="row">
+const presentModalData = (modalData) => `   <div class="row">
     <div class="col-md-4">
       <img
         src="${
@@ -53,7 +50,6 @@ const presentModalData = (modalData) => {
       </div>
     </div>
   </div>`;
-};
 
 const commentsModalHandler = async (movieID) => {
   const getData = await getMoviePopupDetails(movieID);
