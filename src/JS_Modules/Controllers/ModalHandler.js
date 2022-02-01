@@ -1,5 +1,5 @@
 import { Modal } from 'bootstrap/dist/js/bootstrap.bundle.js';
-import getMoviePopupDetails from '../Models/Services.js';
+import { getMoviePopupDetails } from '../Models/Services.js';
 
 const presentModalData = (modalData) => `   <div class="row">
     <div class="col-md-4">
