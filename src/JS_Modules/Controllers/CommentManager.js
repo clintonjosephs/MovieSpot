@@ -5,11 +5,9 @@ const addShareEvent = () => {
   commentForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const movieID = document.getElementById('movieID').innerHTML;
-    const name = document.getElementById('name').value;
-    const comment = document.getElementById('comment').value;
-
-    document.getElementById('name').value = '';
-    document.getElementById('comment').value = '';
+    const name = commentForm[0].value;
+    const comment = commentForm[1].value;
+    commentForm.reset();
 
     sendComment(movieID, name, comment);
   });

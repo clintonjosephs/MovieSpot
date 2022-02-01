@@ -13,7 +13,7 @@ const sendComment = async (movieID, name, commentt) => {
       comment: commentt,
     }),
   });
-  console.log(response.text());
+
   return response.ok;
 };
 const getLikesApi = async () => {

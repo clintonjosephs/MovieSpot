@@ -51,11 +51,10 @@ const presentModalData = (modalData) => `<div class="col-md-4">
     </div>`;
 
 const commentsModalHandler = async (movieID, button) => {
-  console.log(movieID);
   button.innerHTML = "<div class='spinner-border spinner-border-sm text-light' role='status'></div> loading ...";
   button.disabled = true;
   const getData = await getMoviePopupDetails(movieID);
-  console.log(getData);
+
   const modalBody = presentModalData(getData);
   const commentsModalHTML = document.querySelector('.comments_modal');
   const modalBodyGet = document.querySelector('.movie-data');
