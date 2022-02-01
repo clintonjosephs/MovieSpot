@@ -23,8 +23,6 @@ const searchSpinners = (toogle = false) => {
   }
 };
 
-const loadingSpinners = () => {
-
-};
+const loadingSpinners = () => '<div class=\'spinner-border spinner-border-sm text-light\' role=\'status\'></div> &nbsp; progress ...';
 
 export { overlayHandler, loadingSpinners, searchSpinners };

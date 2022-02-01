@@ -1,7 +1,6 @@
 import { involvmentApiEndPoint, contentType } from './Utils.js';
 
-const sendComment = async (movieID, name, commentt) => {
-  //   console.log(movieID, name, comment);
+const sendComment = async (movieID, name, comment) => {
   const response = await fetch(`${involvmentApiEndPoint}comments`, {
     method: 'POST',
     headers: {
@@ -10,12 +9,13 @@ const sendComment = async (movieID, name, commentt) => {
     body: JSON.stringify({
       item_id: movieID,
       username: name,
-      comment: commentt,
+      comment,
     }),
   });
 
   return response.ok;
 };
+
 const getLikesApi = async () => {
   const response = await fetch(`${involvmentApiEndPoint}likes`);
   return response.json();
