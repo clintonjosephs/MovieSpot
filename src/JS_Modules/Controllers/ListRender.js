@@ -1,3 +1,5 @@
+import commentsModalHandler from './ModalHandler.js';
+
 const movieItems = (showDetails) => `<div class="col-md-4 ">
                 <div class="card my-3">
                     <img src="${
@@ -16,11 +18,21 @@ const movieItems = (showDetails) => `<div class="col-md-4 ">
                             </span>
                         </div>
                     <button type="button" class="btn btn-primary commentsModalBtn" data-toggle="modal" data-target=".comment-modal-lg" data-movie-id="${
-  showDetails?.externals?.tvrage
+  showDetails?.id
 }">Comments</button>
                     </div>
                 </div>
             </div>`;
+
+const commentClickEvent = () => {
+  const commentsModalBtn = document.querySelectorAll('.commentsModalBtn');
+  commentsModalBtn.forEach((button) => {
+    const moveID = button.getAttribute('data-movie-id');
+    button.addEventListener('click', () => {
+      commentsModalHandler(moveID);
+    });
+  });
+};
 
 const ListRender = (moviesFetch) => {
   let movieBuilder = '<li class="row">';
@@ -33,6 +45,7 @@ const ListRender = (moviesFetch) => {
   movieBuilder += '</li>';
   const moviesList = document.querySelector('.movies-list');
   moviesList.innerHTML = movieBuilder;
+  commentClickEvent();
 };
 
 export default ListRender;
