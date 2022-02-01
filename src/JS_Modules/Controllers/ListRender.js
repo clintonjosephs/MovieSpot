@@ -1,3 +1,4 @@
+import Count from './Count.js';
 import { addLikes, updateLikes } from './LikeHandler.js';
 import commentsModalHandler from './ModalHandler.js';
 
@@ -58,7 +59,7 @@ const loadLikes = async () => {
   });
 };
 
-const ListRender = async (moviesFetch) => {
+const ListRender = async (moviesFetch, title) => {
   let movieBuilder = '<li class="row">';
   moviesFetch.forEach((movie, index) => {
     movieBuilder += movieItems(movie.show);
@@ -69,6 +70,10 @@ const ListRender = async (moviesFetch) => {
   movieBuilder += '</li>';
   const moviesList = document.querySelector('.movies-list');
   moviesList.innerHTML = movieBuilder;
+
+  const count = Count(moviesFetch);
+  const domMovieTitles = document.querySelector(".movieTitles");
+  domMovieTitles.innerHTML = `Title ${title.toUpperCase()}: TV Shows(${count})`;
   commentClickEvent();
   likeClickEvent();
   loadLikes();

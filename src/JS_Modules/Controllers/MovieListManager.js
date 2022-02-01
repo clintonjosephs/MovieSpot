@@ -7,7 +7,7 @@ const MoviesListManager = async () => {
   const items = ['a', 'b', 'c', 'd', 'e'];
   const index = Math.floor(Math.random() * 4);
   const moviesFetch = await getMovies(items[index]);
-  await ListRender(moviesFetch);
+  await ListRender(moviesFetch, items[index]);
   overlayHandler(false);
 };
 
