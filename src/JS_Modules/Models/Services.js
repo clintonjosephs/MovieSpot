@@ -1,10 +1,15 @@
-/* eslint-disable import/prefer-default-export */
 
-import { BaseUrl, getMoviesEndPoint } from './Utils.js';
+import { BaseUrl, getMoviesEndPoint, getSingleMovieEndPoint } from './Utils.js';
 
 const getMovies = async (query = 'a') => {
   const response = await fetch(`${BaseUrl}${getMoviesEndPoint}?q=${query}`);
   return response.json();
 };
 
-export { getMovies };
+const getMoviePopupDetails = async (movieID) => {
+  const response = await fetch(`${BaseUrl}${getSingleMovieEndPoint}${movieID}`);
+  return response.json();
+};
+
+export { getMoviePopupDetails, getMovies };
+

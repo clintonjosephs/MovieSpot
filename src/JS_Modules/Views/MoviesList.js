@@ -3,5 +3,4 @@ const moviesList = () => `<section class="container movies">
         <ul class="movies-list">
         </ul>
   </section>`;
-
 export default moviesList;

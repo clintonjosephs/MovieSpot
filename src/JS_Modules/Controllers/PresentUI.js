@@ -11,7 +11,7 @@ const presentUI = async () => {
   main.innerHTML = moviesList();
   document.body.insertAdjacentHTML('beforeend', footer());
   document.body.insertAdjacentHTML('beforeend', commentsModal());
-
+  
   await MoviesListManager();
 
   const searchForm = document.querySelector('.searchMovie');
