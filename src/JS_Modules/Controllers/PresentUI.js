@@ -13,9 +13,9 @@ const presentUI = () => {
 
   const commentsModalBtn = document.querySelectorAll('.commentsModalBtn');
   commentsModalBtn.forEach((button) => {
-    const moveID = button.getAttribute('data-movie-id');
+    const movieID = button.getAttribute('data-movie-id');
     button.addEventListener('click', () => {
-      commentsModalHandler(moveID);
+      commentsModalHandler(movieID);
     });
   });
 };

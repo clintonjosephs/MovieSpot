@@ -12,7 +12,7 @@ const moviesList = () => `<section class="container movies">
                                   <i class="fa fa-thumbs-up"></i> &nbsp; 8 Likes
                               </span>
                             </div>
-                        <button type="button" class="btn btn-primary commentsModalBtn" data-toggle="modal" data-target=".comment-modal-lg" data-movie-id="30124">Comments</button>
+                        <button type="button" class="btn btn-primary commentsModalBtn" data-toggle="modal" data-target=".comment-modal-lg" data-movie-id="139">Comments</button>
                       </div>
                     </div>
               </div>
@@ -26,7 +26,7 @@ const moviesList = () => `<section class="container movies">
                               <i class="fa fa-thumbs-up"></i> &nbsp; 9 Likes
                           </span>
                         </div>
-                        <button type="button" class="btn btn-primary commentsModalBtn" data-toggle="modal" data-target=".comment-modal-lg" data-movie-id="30124">Comments</button>
+                        <button type="button" class="btn btn-primary commentsModalBtn" data-toggle="modal" data-target=".comment-modal-lg" data-movie-id="139">Comments</button>
                       </div>
                     </div>
               </div>
@@ -40,7 +40,7 @@ const moviesList = () => `<section class="container movies">
                                   <i class="fa fa-thumbs-up"></i> &nbsp; 8 Likes
                               </span>
                             </div>
-                            <button type="button" class="btn btn-primary commentsModalBtn" data-toggle="modal" data-target=".comment-modal-lg" data-movie-id="30124">Comments</button>
+                            <button type="button" class="btn btn-primary commentsModalBtn" data-toggle="modal" data-target=".comment-modal-lg" data-movie-id="5349">Comments</button>
                             </div>
                     </div>
               </div>

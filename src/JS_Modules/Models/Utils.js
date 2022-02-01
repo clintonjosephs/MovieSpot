@@ -1,3 +1,4 @@
 const BaseUrl = 'https://api.tvmaze.com/';
+const getSingleMovieEndPoint = 'singlesearch/shows?q=';
 
-export default BaseUrl;
+export { BaseUrl, getSingleMovieEndPoint };
