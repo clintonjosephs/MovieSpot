@@ -1,4 +1,4 @@
-import sendComment from '../Models/InvolvementService.js';
+import { sendComment } from '../Models/InvolvementService.js';
 
 const addShareEvent = () => {
   const commentForm = document.getElementById('form');
