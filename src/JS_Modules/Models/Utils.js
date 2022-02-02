@@ -7,12 +7,12 @@ const involvmentApiEndPoint = 'https://us-central1-involvement-api.cloudfunction
 const dateFormatter = (date) => {
   const d = new Date(date);
   return d.toDateString();
-}
+};
 export {
   BaseUrl,
   contentType,
   getMoviesEndPoint,
   getSingleMovieEndPoint,
   involvmentApiEndPoint,
-  dateFormatter
+  dateFormatter,
 };

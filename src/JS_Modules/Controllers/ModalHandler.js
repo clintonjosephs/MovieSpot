@@ -27,7 +27,7 @@ const presentModalData = (modalData) => `<div class="col-md-4">
         <div class="col-md-8">
           Genre: <b>${modalData?.genres.toString() ?? 'N/A'} </b>
         </div>
-        <div class="col-md-4">Year: <b> ${modalData.premiered.substring(0,4) ?? "N/A"}  </b></div>
+        <div class="col-md-4">Year: <b> ${modalData.premiered.substring(0, 4) ?? 'N/A'}  </b></div>
       </div>
 
       <div class="row mt-2">
@@ -64,10 +64,10 @@ const commentsModalHandler = async (movieID, button) => {
   modalBodyGet.insertAdjacentHTML('afterbegin', modalBody);
   const commentsModal = new Modal(commentsModalHTML);
   commentsModal.show();
-  //Clear out comment section before loading new comment, so that it doesnt retain comments for previous movie
+  // Clear out comment section before loading new comment
   const listBody = document.querySelector('.listComments');
-  listBody.innerHTML = "";
-  
+  listBody.innerHTML = '';
+
   getComments(movieID);
   button.innerHTML = 'Comments';
   button.disabled = false;
