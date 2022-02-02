@@ -1,5 +1,6 @@
 import { Modal } from 'bootstrap/dist/js/bootstrap.bundle.js';
 import { getMoviePopupDetails } from '../Models/Services.js';
+import { getComments } from './CommentManager.js';
 
 const presentModalData = (modalData) => `<div class="col-md-4">
       <div id="movieID" hidden>${modalData.id}</div>
@@ -62,6 +63,8 @@ const commentsModalHandler = async (movieID, button) => {
   modalBodyGet.insertAdjacentHTML('afterbegin', modalBody);
   const commentsModal = new Modal(commentsModalHTML);
   commentsModal.show();
+
+  getComments(movieID);
   button.innerHTML = 'Comments';
   button.disabled = false;
 };

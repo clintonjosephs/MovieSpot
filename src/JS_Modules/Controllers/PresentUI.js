@@ -1,5 +1,5 @@
 import commentsModal from '../Views/Comments.js';
-import addShareEvent from './CommentManager.js';
+import { addShareEvent } from './CommentManager.js';
 import footer from '../Views/Footer.js';
 import header from '../Views/Header.js';
 import moviesList from '../Views/MoviesList.js';
@@ -15,6 +15,7 @@ const presentUI = async () => {
 
   await MoviesListManager();
   addShareEvent();
+
   const searchForm = document.querySelector('.searchMovie');
   searchForm.addEventListener('submit', (e) => {
     e.preventDefault();
