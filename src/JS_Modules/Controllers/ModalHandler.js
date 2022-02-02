@@ -27,7 +27,7 @@ const presentModalData = (modalData) => `<div class="col-md-4">
         <div class="col-md-8">
           Genre: <b>${modalData?.genres.toString() ?? 'N/A'} </b>
         </div>
-        <div class="col-md-4">Year: <b> ${modalData.premiered.substring(0, 4) ?? 'N/A'}  </b></div>
+        <div class="col-md-4">Year: <b> ${modalData.premiered?.substring(0, 4) ?? 'N/A'}  </b></div>
       </div>
 
       <div class="row mt-2">
