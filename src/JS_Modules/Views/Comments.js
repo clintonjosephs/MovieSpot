@@ -10,7 +10,7 @@ const commentsModal = () => `<div class="modal fade comments_modal" tabindex="-1
       <div class="row mt-2">
        <section class="commentSection">
             <h5>Comments(0)</h5>
-            <div class="comments-display">
+            <div class="comments-display col-md-8">
                 <ul class="listComments">
                    
                 </ul>

@@ -1,5 +1,6 @@
 import { Modal } from 'bootstrap/dist/js/bootstrap.bundle.js';
 import { getMoviePopupDetails } from '../Models/Services.js';
+import { dateFormatter } from '../Models/Utils.js';
 import { getComments } from './CommentManager.js';
 import { loadingSpinners } from './SpinnersHandler.js';
 
@@ -26,10 +27,7 @@ const presentModalData = (modalData) => `<div class="col-md-4">
         <div class="col-md-8">
           Genre: <b>${modalData?.genres.toString() ?? 'N/A'} </b>
         </div>
-        <div class="col-md-4">Year: <b> ${modalData.premiered.substring(
-    0,
-    4,
-  )}  </b></div>
+        <div class="col-md-4">Year: <b> ${modalData.premiered.substring(0,4) ?? "N/A"}  </b></div>
       </div>
 
       <div class="row mt-2">
@@ -50,9 +48,7 @@ const presentModalData = (modalData) => `<div class="col-md-4">
       </div>
 
       <div class="row mt-2">
-        <div class="col-md-12">Premeired: <b>${
-  modalData?.premiered ?? 'N/A'
-} </b></div>
+        <div class="col-md-12">Premeired: <b>${modalData?.premiered ? dateFormatter(modalData.premiered) : 'N/A'} </b></div>
       </div>
     </div>`;
 
@@ -68,7 +64,10 @@ const commentsModalHandler = async (movieID, button) => {
   modalBodyGet.insertAdjacentHTML('afterbegin', modalBody);
   const commentsModal = new Modal(commentsModalHTML);
   commentsModal.show();
-
+  //Clear out comment section before loading new comment, so that it doesnt retain comments for previous movie
+  const listBody = document.querySelector('.listComments');
+  listBody.innerHTML = "";
+  
   getComments(movieID);
   button.innerHTML = 'Comments';
   button.disabled = false;
