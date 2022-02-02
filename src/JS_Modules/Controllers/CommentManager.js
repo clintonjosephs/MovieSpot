@@ -1,10 +1,11 @@
 import { sendComment, retriveComments } from '../Models/InvolvementService.js';
 import { loadingSpinners } from './SpinnersHandler.js';
+import { dateFormatter } from '../Models/Utils.js';
 
 const presentComments = (commentsData) => {
   let markUp = '';
   commentsData.forEach((element) => {
-    markUp += `<li> <i class="fa fa-calendar">&nbsp</i> ${element.creation_date} <p> ${element.username}: ${element.comment}</li>`;
+    markUp += `<li> <i class="fa fa-calendar">&nbsp</i> ${dateFormatter(element.creation_date)} <p> ${element.username}: ${element.comment}</li>`;
   });
   return markUp;
 };
@@ -18,7 +19,7 @@ const getComments = async (movieID) => {
 
     listBody.innerHTML = commentsBody;
   } else {
-    listBody.innerHTML = '<p> no comment yet</p>';
+    listBody.innerHTML = '<p style="text-align: center"> no comment yet</p>';
   }
 };
 
