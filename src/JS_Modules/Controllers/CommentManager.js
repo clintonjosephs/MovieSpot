@@ -1,23 +1,33 @@
 import { sendComment, retriveComments } from '../Models/InvolvementService.js';
 import { loadingSpinners } from './SpinnersHandler.js';
 import { dateFormatter } from '../Models/Utils.js';
+import Count from './Count.js';
 
 const presentComments = (commentsData) => {
   let markUp = '';
   commentsData.forEach((element) => {
-    markUp += `<li> <i class="fa fa-calendar">&nbsp</i> ${dateFormatter(element.creation_date)} <p> ${element.username}: ${element.comment}</li>`;
+    markUp += `<li> <i class="fa fa-calendar">&nbsp</i> ${dateFormatter(
+      element.creation_date,
+    )} <p> ${element.username}: ${element.comment}</li>`;
   });
   return markUp;
+};
+
+const presentCount = (count) => {
+  const commentCount = document.querySelector('.commentSection h5');
+  commentCount.innerHTML = `Comments(${count})`;
 };
 
 const getComments = async (movieID) => {
   const listBody = document.querySelector('.listComments');
   const comments = await retriveComments(movieID);
 
+  presentCount(0);
   if (comments.length) {
     const commentsBody = presentComments(comments);
 
     listBody.innerHTML = commentsBody;
+    presentCount(Count(comments));
   } else {
     listBody.innerHTML = '<p style="text-align: center"> no comment yet</p>';
   }
