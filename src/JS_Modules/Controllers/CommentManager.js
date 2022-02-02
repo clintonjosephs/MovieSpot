@@ -5,11 +5,14 @@ import Count from './Count.js';
 
 const presentComments = (commentsData) => {
   let markUp = '';
-  commentsData.forEach((element) => {
-    markUp += `<li> <i class="fa fa-calendar">&nbsp</i> ${dateFormatter(
-      element.creation_date,
-    )} <p> ${element.username}: ${element.comment}</li>`;
-  });
+  commentsData
+    .slice()
+    .reverse()
+    .forEach((element) => {
+      markUp += `<li> <i class="fa fa-calendar">&nbsp</i> ${dateFormatter(
+        element.creation_date,
+      )} <p> ${element.username}: ${element.comment} </li>`;
+    });
   return markUp;
 };
 
