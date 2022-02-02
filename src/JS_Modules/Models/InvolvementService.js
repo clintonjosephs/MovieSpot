@@ -1,15 +1,13 @@
 import { involvmentApiEndPoint, contentType } from './Utils.js';
 
-const sendComment = async (movieID, name, commentt) => {
+const sendComment = async (movieID, name, comment) => {
   const response = await fetch(`${involvmentApiEndPoint}comments`, {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
+    headers: contentType,
     body: JSON.stringify({
       item_id: movieID,
       username: name,
-      comment: commentt,
+      comment,
     }),
   });
 

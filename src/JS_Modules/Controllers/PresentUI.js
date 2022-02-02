@@ -14,6 +14,7 @@ const presentUI = async () => {
   document.body.insertAdjacentHTML('beforeend', commentsModal());
 
   await MoviesListManager();
+
   addShareEvent();
 
   const searchForm = document.querySelector('.searchMovie');

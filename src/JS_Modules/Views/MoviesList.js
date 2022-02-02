@@ -1,5 +1,5 @@
 const moviesList = () => `<section class="container movies">
-      <h2 class="text-center my-3 movieTitles">Title A: TV Shows(10)</h2>
+      <h3 class="text-center my-3 movieTitles">Title A: TV Shows(10)</h3>
         <ul class="movies-list">
         </ul>
   </section>`;

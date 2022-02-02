@@ -1,4 +1,5 @@
-import addLikes from './LikeHandler.js';
+import Count from './Count.js';
+import { addLikes, updateLikes } from './LikeHandler.js';
 import commentsModalHandler from './ModalHandler.js';
 
 const movieItems = (showDetails) => `<div class="col-md-4 ">
@@ -16,8 +17,8 @@ const movieItems = (showDetails) => `<div class="col-md-4 ">
 }</h6>
                             <span>
                                 <i class="fa fa-thumbs-up likeBtn" data-movie-id="${showDetails?.id}"></i> 
-                                &nbsp; <span class="likeNum-${showDetails?.id}">0</span> 
-                                <span class="likeText-${showDetails?.id}">Like</span>
+                                <span id="likeNum-${showDetails?.id}" class="likeNum" data-movie-id="${showDetails?.id}">0</span> 
+                                <span id="likeText-${showDetails?.id}" id="likeText">Like</span>
                             </span>
                         </div>
                     <button type="button" class="btn btn-primary commentsModalBtn" data-toggle="modal" data-target=".comment-modal-lg" data-movie-id="${
@@ -42,14 +43,23 @@ const likeClickEvent = () => {
   likeBtns.forEach((button) => {
     const movieID = button.getAttribute('data-movie-id');
     button.addEventListener('click', () => {
-      const likeCounter = document.querySelector(`.likeNum-${movieID}`);
-      const likeText = document.querySelector(`.likeText-${movieID}`);
+      const likeCounter = document.querySelector(`#likeNum-${movieID}`);
+      const likeText = document.querySelector(`#likeText-${movieID}`);
       addLikes(movieID, likeCounter, likeText);
     });
   });
 };
 
-const ListRender = async (moviesFetch) => {
+const loadLikes = async () => {
+  const allLikeSpan = document.querySelectorAll('.likeNum');
+  allLikeSpan.forEach(async (span) => {
+    const movieID = span.getAttribute('data-movie-id');
+    const likeText = document.querySelector(`#likeText-${movieID}`);
+    await updateLikes(span, likeText, movieID);
+  });
+};
+
+const ListRender = async (moviesFetch, title) => {
   let movieBuilder = '<li class="row">';
   moviesFetch.forEach((movie, index) => {
     movieBuilder += movieItems(movie.show);
@@ -60,8 +70,13 @@ const ListRender = async (moviesFetch) => {
   movieBuilder += '</li>';
   const moviesList = document.querySelector('.movies-list');
   moviesList.innerHTML = movieBuilder;
+
+  const count = Count(moviesFetch);
+  const domMovieTitles = document.querySelector('.movieTitles');
+  domMovieTitles.innerHTML = `Title ${title.toUpperCase()}: TV Shows(${count})`;
   commentClickEvent();
   likeClickEvent();
+  loadLikes();
 };
 
 export default ListRender;
