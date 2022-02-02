@@ -5,7 +5,11 @@
 > MovieSpot is your favourite spot to find the latest and your favorite TV shows. You can view the details of the show, like a show or even comment. You can also see other comments which might give you a general idea about what people think about the show.
 > It is built with HTML, CSS and JavaScript with data from the TvMaze API(tv show data) and the Involvement API(likes and comments)
 
-## Mini Presentation
+
+## Video Presentation
+[Presentation Link](https://www.veed.io/view/eb1a75de-f380-49c5-aca7-f7546f984e26)
+
+## Mini Demo
 
 ![screenshot](./src/images/presentation.gif)
 
