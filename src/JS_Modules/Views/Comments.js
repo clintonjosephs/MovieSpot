@@ -12,9 +12,7 @@ const commentsModal = () => `<div class="modal fade comments_modal" tabindex="-1
             <h5>Comments(0)</h5>
             <div class="comments-display">
                 <ul class="listComments">
-                    <li> <i class="fa fa-calendar">&nbsp</i>2021-12-22 <p> Clinton: Comments</li>
-                    <li> <i class="fa fa-calendar">&nbsp</i>2021-12-22 <p> Clinton: Comments</li>
-                    <li> <i class="fa fa-calendar">&nbsp</i>2021-12-22 <p> Clinton: kdjsbfjkdsfkjdsfdkjsbfjdklbfljbfjakbdjkbfdjklasbfjdsbfjbafkjabfkjdfjkadbfjgsjfkhdskjfdjksfkdjsfkdjfkagjfkajdkja</li>
+                   
                 </ul>
             </div>
             <h5>Add a comment</h5>

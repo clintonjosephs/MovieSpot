@@ -14,6 +14,14 @@ const sendComment = async (movieID, name, comment) => {
   return response.ok;
 };
 
+const retriveComments = async (movieID) => {
+  const response = await fetch(
+    `${involvmentApiEndPoint}comments?item_id=${movieID}`,
+  );
+
+  return response.json();
+};
+
 const getLikesApi = async () => {
   const response = await fetch(`${involvmentApiEndPoint}likes`);
   return response.json();
@@ -28,4 +36,6 @@ const addLikesApi = async (movieID) => {
   return response.ok;
 };
 
-export { getLikesApi, addLikesApi, sendComment };
+export {
+  getLikesApi, addLikesApi, sendComment, retriveComments,
+};

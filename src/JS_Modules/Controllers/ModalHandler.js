@@ -1,5 +1,6 @@
 import { Modal } from 'bootstrap/dist/js/bootstrap.bundle.js';
 import { getMoviePopupDetails } from '../Models/Services.js';
+import { getComments } from './CommentManager.js';
 import { loadingSpinners } from './SpinnersHandler.js';
 
 const presentModalData = (modalData) => `<div class="col-md-4">
@@ -40,14 +41,18 @@ const presentModalData = (modalData) => `<div class="col-md-4">
       </div>
 
       <div class="row mt-4">
-        <div class="col-md-8">Language: <b>${modalData?.language ?? 'N/A'} </b></div>
+        <div class="col-md-8">Language: <b>${
+  modalData?.language ?? 'N/A'
+} </b></div>
         <div class="col-md-4">Rating: <b> ${
   modalData.rating?.average ?? 'N/A'
 } </b></div>
       </div>
 
       <div class="row mt-2">
-        <div class="col-md-12">Premeired: <b>${modalData?.premiered ?? 'N/A'} </b></div>
+        <div class="col-md-12">Premeired: <b>${
+  modalData?.premiered ?? 'N/A'
+} </b></div>
       </div>
     </div>`;
 
@@ -63,6 +68,8 @@ const commentsModalHandler = async (movieID, button) => {
   modalBodyGet.insertAdjacentHTML('afterbegin', modalBody);
   const commentsModal = new Modal(commentsModalHTML);
   commentsModal.show();
+
+  getComments(movieID);
   button.innerHTML = 'Comments';
   button.disabled = false;
 };

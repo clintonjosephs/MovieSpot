@@ -1,5 +1,5 @@
 import commentsModal from '../Views/Comments.js';
-import addShareEvent from './CommentManager.js';
+import { addShareEvent } from './CommentManager.js';
 import footer from '../Views/Footer.js';
 import header from '../Views/Header.js';
 import moviesList from '../Views/MoviesList.js';
