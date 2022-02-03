@@ -64,7 +64,8 @@ const ListRender = async (moviesFetch, title = 'All') => {
   let movieBuilder = '<li class="row">';
   moviesFetch.forEach((movie, index) => {
     movieBuilder += movieItems(movie?.show ?? movie);
-    if ((index + 1) % 3 === 0) {
+    const count = index + 1;
+    if (count % 3 === 0 && count < moviesFetch.length) {
       movieBuilder += '</li><li class="row">';
     }
   });
