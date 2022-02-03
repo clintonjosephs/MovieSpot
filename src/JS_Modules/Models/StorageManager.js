@@ -10,4 +10,10 @@ export default class StorageManager {
     : []);
 
   static checkLike = (movieID) => StorageManager.getData().find((item) => item === movieID);
+
+  static popLikes = (movieID) => {
+    let likeData = StorageManager.getData();
+    likeData = likeData.filter((like) => like !== movieID);
+    localStorage.setItem('Likes', JSON.stringify(likeData));
+  };
 }
