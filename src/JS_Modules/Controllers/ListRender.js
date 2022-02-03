@@ -1,6 +1,6 @@
 import StorageManager from "../Models/StorageManager.js";
 import Count from "./Count.js";
-import { addLikes, updateLikes } from "./LikeHandler.js";
+import addLikes from "./LikeHandler.js";
 import commentsModalHandler from "./ModalHandler.js";
 
 const movieItems = (showDetails) => `<div class="col-md-4 ">
@@ -17,8 +17,8 @@ const movieItems = (showDetails) => `<div class="col-md-4 ">
                                 : `${showDetails.name.substr(0, 18)}...`
                             }</h6>
                             <span class="likeUnit-${showDetails?.id}">
-                                <i class="fa fa-heart likeBtn" data-movie-id="${showDetails?.id}" id="likeBtn-${showDetails?.id}"></i> 
-                                <span id="likeNum-${showDetails?.id}" class="likeNum" data-movie-id="${showDetails?.id}">0</span> 
+                                <i class="fa fa-heart likeBtn ${showDetails?.likes !== undefined ? "heart-active" : ""}" data-movie-id="${showDetails?.id}" id="likeBtn-${showDetails?.id}"></i> 
+                                <span id="likeNum-${showDetails?.id}" class="likeNum" data-movie-id="${showDetails?.id}">${showDetails?.likes ?? 0}</span> 
                                 <span id="likeText-${showDetails?.id}" id="likeText">Like</span>
                             </span>
                         </div>
@@ -52,26 +52,11 @@ const likeClickEvent = () => {
       const dataLike = StorageManager.checkLike(movieID);
 
       if (dataLike === undefined) {
-        addLikes(movieID, likeCounter, likeText);
+        addLikes(movieID, likeCounter, likeText, button);
       } else {
         commentsBtn.click();
       }
     });
-  });
-};
-
-const loadLikes = async () => {
-  const allLikeSpan = document.querySelectorAll(".likeNum");
-  allLikeSpan.forEach(async (span) => {
-    const movieID = span.getAttribute("data-movie-id");
-    const likeText = document.querySelector(`#likeText-${movieID}`);
-    const likeBtn = document.querySelector(`#likeBtn-${movieID}`);
-    const dataLike = StorageManager.checkLike(movieID);
-
-    if (dataLike !== undefined) {
-      likeBtn.classList.add("heart-active");
-    } 
-    //await updateLikes(span, likeText, movieID);
   });
 };
 
@@ -92,7 +77,6 @@ const ListRender = async (moviesFetch, title = "All") => {
   domMovieTitles.innerHTML = `Title ${title.toUpperCase()}: TV Shows(${count})`;
   commentClickEvent();
   likeClickEvent();
-  loadLikes();
 };
 
 export default ListRender;

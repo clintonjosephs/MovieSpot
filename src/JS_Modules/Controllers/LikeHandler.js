@@ -1,10 +1,11 @@
-import { addLikesApi, getLikesApi } from '../Models/InvolvementService.js';
+import { addLikesApi } from '../Models/InvolvementService.js';
 import StorageManager from '../Models/StorageManager.js';
 
-const addLikes = async (movieID, likeCounter, likeText) => {
+const addLikes = async (movieID, likeCounter, likeText, likeBtn) => {
   let likeCounterValue = +likeCounter.innerHTML.trim();
   likeCounterValue += 1;
   likeCounter.innerHTML = likeCounterValue.toString();
+  likeBtn.classList.add("heart-active");
 
   const action = await addLikesApi(movieID);
   if (action) {
@@ -15,20 +16,8 @@ const addLikes = async (movieID, likeCounter, likeText) => {
   } else {
     likeCounterValue -= 1;
     likeCounter.innerHTML = likeCounterValue.toString();
+    likeBtn.classList.remove("heart-active");
   }
 };
 
-const getAllLikes = async (movieId) => {
-  const result = await getLikesApi();
-  const { likes } = await result.find((item) => item.item_id === movieId) ?? { likes: 0 };
-  return likes;
-};
-
-const updateLikes = async (likeNum, likeText, movieId) => {
-  const pickLikes = await getAllLikes(movieId);
-  likeNum.innerHTML = pickLikes.toString();
-  const response = pickLikes > 1 ? likeText.innerHTML = 'Likes' : likeText.innerHTML = 'Like';
-  return response;
-};
-
-export { addLikes, updateLikes };
+export default addLikes;
