@@ -1,14 +1,20 @@
 import { addLikesApi, getLikesApi } from '../Models/InvolvementService.js';
+import StorageManager from '../Models/StorageManager.js';
 
 const addLikes = async (movieID, likeCounter, likeText) => {
-  const action = await addLikesApi(movieID);
   let likeCounterValue = +likeCounter.innerHTML.trim();
+  likeCounterValue += 1;
+  likeCounter.innerHTML = likeCounterValue.toString();
+
+  const action = await addLikesApi(movieID);
   if (action) {
-    likeCounterValue += 1;
-    likeCounter.innerHTML = likeCounterValue.toString();
+    StorageManager.storeLikes(movieID);
     if (likeCounterValue > 1) {
       likeText.innerHTML = 'Likes';
     }
+  } else {
+    likeCounterValue -= 1;
+    likeCounter.innerHTML = likeCounterValue.toString();
   }
 };
 

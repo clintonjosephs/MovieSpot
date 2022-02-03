@@ -1,9 +1,9 @@
 export default class StorageManager {
     static storeLikes = (movieID) => {
-      const likeData = getData();
+      const likeData = StorageManager.getData();
       likeData.push(movieID);
-      localStorage.setItem('Likes', movieID);
+      localStorage.setItem('Likes', JSON.stringify(likeData));
     }
 
-    static getData = () => (localStorage.getItem('Likes') ? localStorage.getItem('Likes') : []);
+    static getData = () => (localStorage.getItem('Likes') ? JSON.parse(localStorage.getItem('Likes')) : []);
 }
