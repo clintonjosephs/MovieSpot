@@ -37,5 +37,5 @@ const addLikesApi = async (movieID) => {
 };
 
 export {
-  getLikesApi, addLikesApi, sendComment, retriveComments,
+  getLikesApi, addLikesApi, sendComment, retriveComments
 };
