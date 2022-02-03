@@ -1,7 +1,7 @@
 const BaseUrl = 'https://api.tvmaze.com/';
 const contentType = { 'content-type': 'application/json' };
-const getMoviesEndPoint = 'search/shows';
-const getSingleMovieEndPoint = 'shows/';
+const searchEndPoint = 'search/shows';
+const getMoviesEndPoint = 'shows';
 const involvmentApiEndPoint = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/EfW4baGDbzq78AaqqcR8/';
 
 const dateFormatter = (date) => {
@@ -12,7 +12,7 @@ export {
   BaseUrl,
   contentType,
   getMoviesEndPoint,
-  getSingleMovieEndPoint,
+  searchEndPoint,
   involvmentApiEndPoint,
   dateFormatter,
 };

@@ -1,5 +1,6 @@
+import StorageManager from '../Models/StorageManager.js';
 import Count from './Count.js';
-import { addLikes, updateLikes } from './LikeHandler.js';
+import addLikes from './LikeHandler.js';
 import commentsModalHandler from './ModalHandler.js';
 
 const movieItems = (showDetails) => `<div class="col-md-4 ">
@@ -15,13 +16,15 @@ const movieItems = (showDetails) => `<div class="col-md-4 ">
     ? showDetails?.name ?? 'No name'
     : `${showDetails.name.substr(0, 18)}...`
 }</h6>
-                            <span>
-                                <i class="fa fa-thumbs-up likeBtn" data-movie-id="${showDetails?.id}"></i> 
-                                <span id="likeNum-${showDetails?.id}" class="likeNum" data-movie-id="${showDetails?.id}">0</span> 
+                            <span class="likeUnit-${showDetails?.id}">
+                                <i class="fa fa-heart likeBtn ${showDetails?.likes > 0 ? 'heart-active' : ''}" data-movie-id="${showDetails?.id}" id="likeBtn-${showDetails?.id}"></i> 
+                                <span id="likeNum-${showDetails?.id}" class="likeNum" data-movie-id="${showDetails?.id}">${showDetails.likes}</span> 
                                 <span id="likeText-${showDetails?.id}" id="likeText">Like</span>
                             </span>
                         </div>
-                    <button type="button" class="btn btn-primary commentsModalBtn" data-toggle="modal" data-target=".comment-modal-lg" data-movie-id="${
+                    <button type="button" class="btn btn-primary commentsModalBtn" id="comments-${
+  showDetails?.id
+}" data-toggle="modal" data-target=".comment-modal-lg" data-movie-id="${
   showDetails?.id
 }">Comments</button>
                     </div>
@@ -45,25 +48,24 @@ const likeClickEvent = () => {
     button.addEventListener('click', () => {
       const likeCounter = document.querySelector(`#likeNum-${movieID}`);
       const likeText = document.querySelector(`#likeText-${movieID}`);
-      addLikes(movieID, likeCounter, likeText);
+      const commentsBtn = document.querySelector(`#comments-${movieID}`);
+      const dataLike = StorageManager.checkLike(movieID);
+
+      if (dataLike === undefined) {
+        addLikes(movieID, likeCounter, likeText, button);
+      } else {
+        commentsBtn.click();
+      }
     });
   });
 };
 
-const loadLikes = async () => {
-  const allLikeSpan = document.querySelectorAll('.likeNum');
-  allLikeSpan.forEach(async (span) => {
-    const movieID = span.getAttribute('data-movie-id');
-    const likeText = document.querySelector(`#likeText-${movieID}`);
-    await updateLikes(span, likeText, movieID);
-  });
-};
-
-const ListRender = async (moviesFetch, title) => {
+const ListRender = async (moviesFetch, title = 'All') => {
   let movieBuilder = '<li class="row">';
   moviesFetch.forEach((movie, index) => {
-    movieBuilder += movieItems(movie.show);
-    if ((index + 1) % 3 === 0) {
+    movieBuilder += movieItems(movie?.show ?? movie);
+    const count = index + 1;
+    if (count % 3 === 0 && count < moviesFetch.length) {
       movieBuilder += '</li><li class="row">';
     }
   });
@@ -76,7 +78,6 @@ const ListRender = async (moviesFetch, title) => {
   domMovieTitles.innerHTML = `Title ${title.toUpperCase()}: TV Shows(${count})`;
   commentClickEvent();
   likeClickEvent();
-  loadLikes();
 };
 
 export default ListRender;

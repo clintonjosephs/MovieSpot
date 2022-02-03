@@ -1,4 +1,4 @@
-import { getMovies } from '../Models/Services.js';
+import { searchMovies } from '../Models/Services.js';
 import ListRender from './ListRender.js';
 import { searchSpinners } from './SpinnersHandler.js';
 
@@ -7,7 +7,7 @@ const searchBar = async (searchForm) => {
     searchSpinners(true);
 
     const movieTitle = searchForm[0].value.trim();
-    const moviesFetch = await getMovies(movieTitle);
+    const moviesFetch = await searchMovies(movieTitle);
 
     ListRender(moviesFetch, movieTitle);
     searchSpinners(false);
