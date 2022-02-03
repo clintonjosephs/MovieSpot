@@ -93,6 +93,9 @@ h2 > span {
   border-radius: 10px;
 }
 
+.headLink {
+  text-decoration: none;
+}
 /***  Main styling end */
 
 /** CARD **/
@@ -136,7 +139,11 @@ h2 > span {
   cursor: pointer;
 }
 
-.fa-thumbs-up:hover {
+.fa-heart:hover {
+  color: var(--accent-color);
+}
+
+.fa-heart:active {
   color: var(--accent-color);
 }
 

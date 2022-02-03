@@ -4,8 +4,8 @@ const header = () => `<header class="header-section">
 <div class="container my-2">
     <div class="row header-container">
         <div class="col-md-6 col-sm-12 logo">
-            <img src="${Logo}" alt="movie point logo" width="70px" height="70px"/>
-            <h2 class="caption">MOVIE<span>SPOT</span></h2>
+            <a href="" class="headLink"><img src="${Logo}" alt="movie point logo" width="70px" height="70px"/></a>
+            <a href="" class="headLink"><h2 class="caption">MOVIE<span>SPOT</span></h2></a>
         </div>
         <div class="col-md-6 col-sm-12">
             <form method="post" class="searchMovie">

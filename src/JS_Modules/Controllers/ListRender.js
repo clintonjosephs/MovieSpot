@@ -16,7 +16,7 @@ const movieItems = (showDetails) => `<div class="col-md-4 ">
     : `${showDetails.name.substr(0, 18)}...`
 }</h6>
                             <span>
-                                <i class="fa fa-thumbs-up likeBtn" data-movie-id="${showDetails?.id}"></i> 
+                                <i class="fa fa-heart likeBtn" data-movie-id="${showDetails?.id}"></i> 
                                 <span id="likeNum-${showDetails?.id}" class="likeNum" data-movie-id="${showDetails?.id}">0</span> 
                                 <span id="likeText-${showDetails?.id}" id="likeText">Like</span>
                             </span>
