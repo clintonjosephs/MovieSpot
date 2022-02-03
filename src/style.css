@@ -10,7 +10,7 @@
 
 /* Variables */
 :root {
-  --primary-color-1: #2a377f;
+  --primary-color-1: #555f98;
   --accent-color: #f85f68;
   --accent-color-2: #bec1c8;
   --white: #fff;
@@ -20,7 +20,7 @@
   --black: #2a377f;
   --neutral-color: #f85f68;
   --neutral-color-2: #f7c3c6;
-  --neutral-color-3: #2a377f;
+  --neutral-color-3: #555f98;
 }
 
 /* Global styles */
@@ -93,6 +93,10 @@ h2 > span {
   border-radius: 10px;
 }
 
+.headLink {
+  text-decoration: none;
+}
+
 /***  Main styling end */
 
 /** CARD **/
@@ -136,7 +140,11 @@ h2 > span {
   cursor: pointer;
 }
 
-.fa-thumbs-up:hover {
+.fa-heart:hover {
+  color: var(--accent-color);
+}
+
+.heart-active {
   color: var(--accent-color);
 }
 
