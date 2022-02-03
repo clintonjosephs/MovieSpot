@@ -6,4 +6,6 @@ export default class StorageManager {
     }
 
     static getData = () => (localStorage.getItem('Likes') ? JSON.parse(localStorage.getItem('Likes')) : []);
+
+    static checkLike = (movieID) => StorageManager.getData().find((item) => item === movieID);
 }

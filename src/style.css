@@ -143,7 +143,7 @@ h2 > span {
   color: var(--accent-color);
 }
 
-.fa-heart:active {
+.heart-active {
   color: var(--accent-color);
 }
 
