@@ -59,10 +59,10 @@ const loadLikes = async () => {
   });
 };
 
-const ListRender = async (moviesFetch, title) => {
+const ListRender = async (moviesFetch, title = "All") => {
   let movieBuilder = '<li class="row">';
   moviesFetch.forEach((movie, index) => {
-    movieBuilder += movieItems(movie.show);
+    movieBuilder += movieItems(movie?.show ?? movie);
     if ((index + 1) % 3 === 0) {
       movieBuilder += '</li><li class="row">';
     }

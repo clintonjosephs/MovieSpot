@@ -1,4 +1,4 @@
 node_modules
-vscode
+.vscode
 coverage
-DS_Store
+.DS_Store
