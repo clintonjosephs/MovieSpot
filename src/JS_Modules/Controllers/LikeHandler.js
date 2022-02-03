@@ -5,7 +5,7 @@ const addLikes = async (movieID, likeCounter, likeText, likeBtn) => {
   let likeCounterValue = +likeCounter.innerHTML.trim();
   likeCounterValue += 1;
   likeCounter.innerHTML = likeCounterValue.toString();
-  likeBtn.classList.add("heart-active");
+  likeBtn.classList.add('heart-active');
 
   const action = await addLikesApi(movieID);
   if (action) {
@@ -16,7 +16,7 @@ const addLikes = async (movieID, likeCounter, likeText, likeBtn) => {
   } else {
     likeCounterValue -= 1;
     likeCounter.innerHTML = likeCounterValue.toString();
-    likeBtn.classList.remove("heart-active");
+    likeBtn.classList.remove('heart-active');
   }
 };
 
