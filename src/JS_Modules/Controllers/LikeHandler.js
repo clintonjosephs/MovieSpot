@@ -6,10 +6,10 @@ const addLikes = async (movieID, likeCounter, likeText, likeBtn) => {
   likeCounterValue += 1;
   likeCounter.innerHTML = likeCounterValue.toString();
   likeBtn.classList.add('heart-active');
+  StorageManager.storeLikes(movieID);
 
-  const action = await addLikesApi(movieID);
+  const action = await addLikesApi(movieID).catch(() => false);
   if (action) {
-    StorageManager.storeLikes(movieID);
     if (likeCounterValue > 1) {
       likeText.innerHTML = 'Likes';
     }
@@ -17,6 +17,7 @@ const addLikes = async (movieID, likeCounter, likeText, likeBtn) => {
     likeCounterValue -= 1;
     likeCounter.innerHTML = likeCounterValue.toString();
     likeBtn.classList.remove('heart-active');
+    StorageManager.popLikes(movieID);
   }
 };
 
