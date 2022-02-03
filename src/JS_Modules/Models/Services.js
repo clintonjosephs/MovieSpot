@@ -19,7 +19,7 @@ const getMovies = async (page = 'page=0') => {
   const value = await response.json();
   const modifyValue = await mapGetLikesApi(value);
 
-  modifyValue.length = 24;
+  modifyValue.length = 40;
   return modifyValue;
 };
 

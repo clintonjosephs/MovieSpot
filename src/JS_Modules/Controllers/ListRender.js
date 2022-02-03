@@ -3,7 +3,7 @@ import Count from './Count.js';
 import addLikes from './LikeHandler.js';
 import commentsModalHandler from './ModalHandler.js';
 
-const movieItems = (showDetails) => `<div class="col-md-4 ">
+const movieItems = (showDetails) => `<div class="col-md-3 ">
                 <div class="card my-3">
                     <img src="${
   showDetails?.image?.medium
@@ -65,7 +65,7 @@ const ListRender = async (moviesFetch, title = 'All') => {
   moviesFetch.forEach((movie, index) => {
     movieBuilder += movieItems(movie?.show ?? movie);
     const count = index + 1;
-    if (count % 3 === 0 && count < moviesFetch.length) {
+    if (count % 4 === 0 && count < moviesFetch.length) {
       movieBuilder += '</li><li class="row">';
     }
   });
