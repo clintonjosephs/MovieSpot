@@ -19,7 +19,7 @@ const movieItems = (showDetails) => `<div class="col-md-3 ">
                             <span class="likeUnit-${showDetails?.id}">
                                 <i class="fa fa-heart likeBtn ${showDetails?.likes > 0 ? 'heart-active' : ''}" data-movie-id="${showDetails?.id}" id="likeBtn-${showDetails?.id}"></i> 
                                 <span id="likeNum-${showDetails?.id}" class="likeNum" data-movie-id="${showDetails?.id}">${showDetails.likes}</span> 
-                                <span id="likeText-${showDetails?.id}" id="likeText">Like</span>
+                                <span id="likeText-${showDetails?.id}" id="likeText">${showDetails?.likes > 1 ? 'Likes' : 'Like'}</span>
                             </span>
                         </div>
                     <button type="button" class="btn btn-primary commentsModalBtn" id="comments-${
