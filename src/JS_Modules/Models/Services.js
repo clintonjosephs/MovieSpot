@@ -1,3 +1,4 @@
+import Data from './Data.js';
 import { getLikesApi } from './InvolvementService.js';
 import { BaseUrl, getMoviesEndPoint, searchEndPoint } from './Utils.js';
 
@@ -18,10 +19,15 @@ const getMovies = async (page = 'page=1') => {
   const response = await fetch(`${BaseUrl}${getMoviesEndPoint}?${page}`);
   const value = await response.json();
   const modifyValue = await mapGetLikesApi(value);
-
-  modifyValue.length = 40;
-  return modifyValue;
+  Data.chunkArray(modifyValue, 40);
+  return pushDisplay();
 };
+
+const pushDisplay = () => {
+  const returnValue = Data.allData[Data.start];
+  Data.start+=1;
+  return returnValue;
+}
 
 const searchMovies = async (title) => {
   const response = await fetch(`${BaseUrl}${searchEndPoint}?q=${title}`);

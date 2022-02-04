@@ -1,3 +1,4 @@
+import Data from '../Models/Data.js';
 import StorageManager from '../Models/StorageManager.js';
 import Count from './Count.js';
 import addLikes from './LikeHandler.js';
@@ -60,7 +61,7 @@ const likeClickEvent = () => {
   });
 };
 
-const ListRender = async (moviesFetch, title = 'All') => {
+const ListRender = async (moviesFetch, title = 'All', search = false) => {
   let movieBuilder = '<li class="row">';
   moviesFetch.forEach((movie, index) => {
     movieBuilder += movieItems(movie?.show ?? movie);
@@ -71,9 +72,16 @@ const ListRender = async (moviesFetch, title = 'All') => {
   });
   movieBuilder += '</li>';
   const moviesList = document.querySelector('.movies-list');
-  moviesList.innerHTML = movieBuilder;
 
-  const count = Count(moviesFetch);
+
+  if (!search) {
+    moviesList.innerHTML = movieBuilder;
+    count = Count(moviesFetch);
+  } else {
+    moviesList.innerHTML += movieBuilder;
+    count =+ Data.end;
+  }
+  
   const domMovieTitles = document.querySelector('.movieTitles');
   domMovieTitles.innerHTML = `Title ${title.toUpperCase()}: TV Shows(${count})`;
   commentClickEvent();
