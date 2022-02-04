@@ -153,7 +153,7 @@ h2 > span {
 
 .movies-list > li {
   min-height: 500px;
-  animation: createBox 2s;
+  animation: createBox 1s;
 }
 
 @keyframes createBox {

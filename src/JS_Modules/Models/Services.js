@@ -14,7 +14,7 @@ const mapGetLikesApi = async (response) => {
   }));
   return responseArray;
 };
-const getMovies = async (page = 'page=0') => {
+const getMovies = async (page = 'page=1') => {
   const response = await fetch(`${BaseUrl}${getMoviesEndPoint}?${page}`);
   const value = await response.json();
   const modifyValue = await mapGetLikesApi(value);
