@@ -1,4 +1,3 @@
-import Data from '../Models/Data.js';
 import StorageManager from '../Models/StorageManager.js';
 import Count from './Count.js';
 import addLikes from './LikeHandler.js';
@@ -73,13 +72,14 @@ const ListRender = async (moviesFetch, title = 'All', search = false) => {
   movieBuilder += '</li>';
   const moviesList = document.querySelector('.movies-list');
 
+  let count = 0;
 
   if (!search) {
     moviesList.innerHTML = movieBuilder;
     count = Count(moviesFetch);
   } else {
     moviesList.innerHTML += movieBuilder;
-    count =+ Data.end;
+    count = moviesList.childElementCount;
   }
   
   const domMovieTitles = document.querySelector('.movieTitles');

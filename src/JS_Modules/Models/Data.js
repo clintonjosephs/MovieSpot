@@ -1,6 +1,6 @@
 export default class Data {
     static start = 0;
-    static end = 40;
+    static end = 24;
 
     static allData;
 
