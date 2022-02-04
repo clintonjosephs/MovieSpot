@@ -106,13 +106,12 @@ h2 > span {
 }
 
 .card-img-top {
-  padding: 10px;
-  transition: image 1.8s ease-in;
   height: 100%;
+  opacity: 0.8;
 }
 
 .card-img-top:hover {
-  padding: 0;
+ opacity: 1;
 }
 
 .btn-primary {

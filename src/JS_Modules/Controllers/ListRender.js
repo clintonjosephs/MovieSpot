@@ -3,7 +3,7 @@ import Count from './Count.js';
 import addLikes from './LikeHandler.js';
 import commentsModalHandler from './ModalHandler.js';
 
-const movieItems = (showDetails) => `<div class="col-md-3 ">
+const movieItems = (showDetails) => `<div class="col-md-3">
                 <div class="card my-3">
                     <img src="${
   showDetails?.image?.medium
