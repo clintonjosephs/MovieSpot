@@ -1,9 +1,10 @@
+import Data from '../Models/Data.js';
 import StorageManager from '../Models/StorageManager.js';
 import Count from './Count.js';
 import addLikes from './LikeHandler.js';
 import commentsModalHandler from './ModalHandler.js';
 
-const movieItems = (showDetails) => `<div class="col-md-3">
+const movieItems = (showDetails) => `<div class="col-md-3 ${Data.start <= 1 ? "animate" : '' }">
                 <div class="card my-3">
                     <img src="${
   showDetails?.image?.medium
@@ -74,12 +75,14 @@ const ListRender = async (moviesFetch, title = 'All', search = false) => {
 
   let count = 0;
 
-  if (!search) {
+  if (search) {
+    Data.start = 0;
+    Data.search = true;
     moviesList.innerHTML = movieBuilder;
     count = Count(moviesFetch);
   } else {
-    moviesList.innerHTML += movieBuilder;
-    count = moviesList.childElementCount;
+    moviesList.insertAdjacentHTML('beforeend', movieBuilder);
+    count = Count(Data.fullData);
   }
   
   const domMovieTitles = document.querySelector('.movieTitles');

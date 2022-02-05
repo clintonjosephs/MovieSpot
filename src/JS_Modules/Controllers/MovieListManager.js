@@ -1,5 +1,5 @@
 import Data from '../Models/Data.js';
-import { getMovies } from '../Models/Services.js';
+import { getMovies, pushDisplay } from '../Models/Services.js';
 import ListRender from './ListRender.js';
 import { overlayHandler } from './SpinnersHandler.js';
 
@@ -10,11 +10,14 @@ const MoviesListManager = async () => {
   overlayHandler(false);
 };
 
-window.onscroll = () => {
-  if (Math.round((window.innerHeight + window.scrollY)) >= document.body.offsetHeight) {
-    if (Data.start < Data.allData.length) {
-      alert('i got here');
-    }
+window.onscroll = async () => {
+  if (Math.round((window.innerHeight + window.scrollY)) >= (document.body.offsetHeight - 400)) {
+      if (Data.start < Data.allData.length && !Data.search) {     
+          const li = document.querySelector('.movies-list li');
+          li.style.animation = "none";
+          const moviesFetch = pushDisplay();
+          await ListRender(moviesFetch);
+      }
   }
 };
 

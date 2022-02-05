@@ -20,10 +20,10 @@ const getMovies = async (page = 'page=1') => {
   const value = await response.json();
   const modifyValue = await mapGetLikesApi(value);
   Data.chunkArray(modifyValue, 40);
-  return pushDisplay();
+  return pushDisplay(true);
 };
 
-const pushDisplay = () => {
+const pushDisplay = (first = false) => {
   const returnValue = Data.allData[Data.start];
   Data.start+=1;
   return returnValue;
@@ -47,4 +47,4 @@ const getMoviePopupDetails = async (movieID) => {
   return response.json();
 };
 
-export { getMoviePopupDetails, getMovies, searchMovies };
+export { getMoviePopupDetails, getMovies, searchMovies, pushDisplay };
