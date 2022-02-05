@@ -1,12 +1,15 @@
 import Data from '../Models/Data.js';
 import { getMovies, pushDisplay } from '../Models/Services.js';
+import Count from './Count.js';
 import ListRender from './ListRender.js';
 import { overlayHandler } from './SpinnersHandler.js';
+import updateHeader from './updateHeader.js';
 
 const MoviesListManager = async () => {
   overlayHandler(true);
   const moviesFetch = await getMovies();
   await ListRender(moviesFetch);
+  updateHeader('All', Count(Data.fullData));
   overlayHandler(false);
 };
 
