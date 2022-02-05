@@ -23,7 +23,7 @@ const getMovies = async (page = 'page=1') => {
   return pushDisplay(true);
 };
 
-const pushDisplay = (first = false) => {
+const pushDisplay = () => {
   const returnValue = Data.allData[Data.start];
   Data.start+=1;
   return returnValue;

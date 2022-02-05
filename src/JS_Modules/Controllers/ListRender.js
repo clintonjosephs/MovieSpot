@@ -13,6 +13,7 @@ const commentClickEvent = () => {
     button.addEventListener('click', () => {
       commentsModalHandler(movieID, button);
     });
+    console.log(button);
   });
 };
 
