@@ -15,12 +15,12 @@ const MoviesListManager = async () => {
 
 window.onscroll = async () => {
   if (Math.round((window.innerHeight + window.scrollY)) >= (document.body.offsetHeight - 400)) {
-      if (Data.start < Data.allData.length && !Data.search) {     
-          const li = document.querySelector('.movies-list li');
-          li.style.animation = "none";
-          const moviesFetch = pushDisplay();
-          await ListRender(moviesFetch);
-      }
+    if (Data.start < Data.allData.length && !Data.search) {
+      const li = document.querySelector('.movies-list li');
+      li.style.animation = 'none';
+      const moviesFetch = pushDisplay();
+      await ListRender(moviesFetch);
+    }
   }
 };
 

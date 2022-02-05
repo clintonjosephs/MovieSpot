@@ -21,10 +21,8 @@ const addLikes = async (movieID, likeCounter, likeText, likeBtn) => {
   }
 };
 
-
 const likeClickEvent = () => {
   const likeBtns = document.querySelectorAll('.likeBtn[freshLikeBtn="yes"]');
-  console.log(likeBtns.length, 'likes');
   likeBtns.forEach((button) => {
     const movieID = button.getAttribute('data-movie-id');
     button.addEventListener('click', () => {

@@ -57,19 +57,16 @@ const addShareEvent = () => {
   });
 };
 
-
 const commentClickEvent = () => {
   const commentsModalBtn = document.querySelectorAll('.commentsModalBtn[freshCommentBtn = "yes"]');
-  console.log(commentsModalBtn.length, 'comments');
-
   commentsModalBtn.forEach((button) => {
     const movieID = button.getAttribute('data-movie-id');
-    button.addEventListener('click', () => {
-      commentsModalHandler(movieID, button);
+    button.addEventListener('click', async () => {
+      await commentsModalHandler(movieID, button);
+      getComments(movieID);
     });
-    button.removeAttribute("freshCommentBtn");
+    button.removeAttribute('freshCommentBtn');
   });
 };
-
 
 export { addShareEvent, getComments, commentClickEvent };

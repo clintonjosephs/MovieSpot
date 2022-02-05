@@ -15,6 +15,13 @@ const mapGetLikesApi = async (response) => {
   }));
   return responseArray;
 };
+
+const pushDisplay = () => {
+  const returnValue = Data.allData[Data.start];
+  Data.start += 1;
+  return returnValue;
+};
+
 const getMovies = async (page = 'page=1') => {
   const response = await fetch(`${BaseUrl}${getMoviesEndPoint}?${page}`);
   const value = await response.json();
@@ -22,12 +29,6 @@ const getMovies = async (page = 'page=1') => {
   Data.chunkArray(modifyValue, 40);
   return pushDisplay();
 };
-
-const pushDisplay = () => {
-  const returnValue = Data.allData[Data.start];
-  Data.start+=1;
-  return returnValue;
-}
 
 const searchMovies = async (title) => {
   const response = await fetch(`${BaseUrl}${searchEndPoint}?q=${title}`);
@@ -47,4 +48,6 @@ const getMoviePopupDetails = async (movieID) => {
   return response.json();
 };
 
-export { getMoviePopupDetails, getMovies, searchMovies, pushDisplay };
+export {
+  getMoviePopupDetails, getMovies, searchMovies, pushDisplay,
+};
