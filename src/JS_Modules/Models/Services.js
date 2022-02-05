@@ -22,7 +22,7 @@ const pushDisplay = () => {
   return returnValue;
 };
 
-const getMovies = async (page = 'page=1') => {
+const getMovies = async (page = 'page=0') => {
   const response = await fetch(`${BaseUrl}${getMoviesEndPoint}?${page}`);
   const value = await response.json();
   const modifyValue = await mapGetLikesApi(value);
