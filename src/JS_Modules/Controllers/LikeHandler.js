@@ -21,4 +21,23 @@ const addLikes = async (movieID, likeCounter, likeText, likeBtn) => {
   }
 };
 
-export default addLikes;
+const likeClickEvent = () => {
+  const likeBtns = document.querySelectorAll('.likeBtn[freshLikeBtn="yes"]');
+  likeBtns.forEach((button) => {
+    const movieID = button.getAttribute('data-movie-id');
+    button.addEventListener('click', () => {
+      const likeCounter = document.querySelector(`#likeNum-${movieID}`);
+      const likeText = document.querySelector(`#likeText-${movieID}`);
+      const commentsBtn = document.querySelector(`#comments-${movieID}`);
+      const dataLike = StorageManager.checkLike(movieID);
+      if (dataLike === undefined) {
+        addLikes(movieID, likeCounter, likeText, button);
+      } else {
+        commentsBtn.click();
+      }
+    });
+    button.removeAttribute('freshLikeBtn');
+  });
+};
+
+export default likeClickEvent;

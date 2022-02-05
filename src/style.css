@@ -106,9 +106,9 @@ h2 > span {
 }
 
 .card-img-top {
-  padding: 10px;
-  transition: image 1.8s ease-in;
   height: 100%;
+  padding: 5px;
+  transition: 0.5s;
 }
 
 .card-img-top:hover {
@@ -154,6 +154,9 @@ h2 > span {
 
 .movies-list > li {
   min-height: 500px;
+}
+
+.animate {
   animation: createBox 2s;
 }
 
