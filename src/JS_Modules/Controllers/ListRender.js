@@ -1,40 +1,9 @@
 import Data from '../Models/Data.js';
-import StorageManager from '../Models/StorageManager.js';
 import Count from './Count.js';
-import addLikes from './LikeHandler.js';
-import commentsModalHandler from './ModalHandler.js';
 import movieItems from './MovieItems.js';
 import updateHeader from './updateHeader.js';
-
-const commentClickEvent = () => {
-  const commentsModalBtn = document.querySelectorAll('.commentsModalBtn');
-  commentsModalBtn.forEach((button) => {
-    const movieID = button.getAttribute('data-movie-id');
-    button.addEventListener('click', () => {
-      commentsModalHandler(movieID, button);
-    });
-    console.log(button);
-  });
-};
-
-const likeClickEvent = () => {
-  const likeBtns = document.querySelectorAll('.likeBtn');
-  likeBtns.forEach((button) => {
-    const movieID = button.getAttribute('data-movie-id');
-    button.addEventListener('click', () => {
-      const likeCounter = document.querySelector(`#likeNum-${movieID}`);
-      const likeText = document.querySelector(`#likeText-${movieID}`);
-      const commentsBtn = document.querySelector(`#comments-${movieID}`);
-      const dataLike = StorageManager.checkLike(movieID);
-
-      if (dataLike === undefined) {
-        addLikes(movieID, likeCounter, likeText, button);
-      } else {
-        commentsBtn.click();
-      }
-    });
-  });
-};
+import { commentClickEvent } from './CommentManager.js';
+import likeClickEvent from './LikeHandler.js';
 
 const ListRender = async (moviesFetch, title = 'All', search = false) => {
   let movieBuilder = '<li class="row">';
@@ -48,17 +17,15 @@ const ListRender = async (moviesFetch, title = 'All', search = false) => {
   movieBuilder += '</li>';
   const moviesList = document.querySelector('.movies-list');
 
-  let count = 0;
-
   if (search) {
     Data.start = 0;
     Data.search = true;
     moviesList.innerHTML = movieBuilder;
-    count = Count(moviesFetch);
-    updateHeader(title, count);
+    updateHeader(title, Count(moviesFetch));
   } else {
     moviesList.insertAdjacentHTML('beforeend', movieBuilder);
   }
+
   commentClickEvent();
   likeClickEvent();
 };

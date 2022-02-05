@@ -16,7 +16,7 @@ const movieItems = (showDetails) => `<div class="col-md-3 animate">
                                   showDetails?.likes > 0 ? "heart-active" : ""
                                 }" data-movie-id="${
   showDetails?.id
-}" id="likeBtn-${showDetails?.id}"></i> 
+}" id="likeBtn-${showDetails?.id}" freshLikeBtn="yes"></i> 
                                 <span id="likeNum-${
                                   showDetails?.id
                                 }" class="likeNum" data-movie-id="${
@@ -33,7 +33,7 @@ const movieItems = (showDetails) => `<div class="col-md-3 animate">
                       showDetails?.id
                     }" data-toggle="modal" data-target=".comment-modal-lg" data-movie-id="${
   showDetails?.id
-}">Comments</button>
+}" freshCommentBtn="yes">Comments</button>
                     </div>
                 </div>
             </div>`;

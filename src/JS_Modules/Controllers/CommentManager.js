@@ -1,6 +1,7 @@
 import { sendComment, retriveComments } from '../Models/InvolvementService.js';
 import { loadingSpinners } from './SpinnersHandler.js';
 import { dateFormatter } from '../Models/Utils.js';
+import commentsModalHandler from './ModalHandler.js';
 import Count from './Count.js';
 
 const presentComments = (commentsData) => {
@@ -52,9 +53,23 @@ const addShareEvent = () => {
       commentForm.reset();
       submitBtn.innerHTML = '<i class="fa fa-share"></i> Share';
     }
-
     getComments(movieID);
   });
 };
 
-export { addShareEvent, getComments };
+
+const commentClickEvent = () => {
+  const commentsModalBtn = document.querySelectorAll('.commentsModalBtn[freshCommentBtn = "yes"]');
+  console.log(commentsModalBtn.length, 'comments');
+
+  commentsModalBtn.forEach((button) => {
+    const movieID = button.getAttribute('data-movie-id');
+    button.addEventListener('click', () => {
+      commentsModalHandler(movieID, button);
+    });
+    button.removeAttribute("freshCommentBtn");
+  });
+};
+
+
+export { addShareEvent, getComments, commentClickEvent };
