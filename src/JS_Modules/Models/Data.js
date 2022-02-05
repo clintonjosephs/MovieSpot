@@ -3,8 +3,8 @@ export default class Data {
     static end = 24;
     static search = false;
 
-    static allData;
-    static fullData;
+    static allData = [];
+    static fullData = [];
 
     static chunkArray = (array) => {
         Data.fullData = array;
@@ -13,6 +13,6 @@ export default class Data {
         while (arrayCopy.length > 0) {
             result.push(arrayCopy.splice(0, Data.end))
         }
-        Data.allData = result
+        Data.allData = result;
     }
 }
