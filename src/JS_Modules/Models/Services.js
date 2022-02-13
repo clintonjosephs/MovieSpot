@@ -1,13 +1,19 @@
 import Data from './Data.js';
 import { getLikesApi } from './InvolvementService.js';
+import StorageManager from './StorageManager.js';
 import { BaseUrl, getMoviesEndPoint, searchEndPoint } from './Utils.js';
 
 const mapGetLikesApi = async (response) => {
+  const moviesLikedByUser = StorageManager.getData();
   const apiLikes = await getLikesApi();
   const responseArray = await response;
   responseArray.map((movie) => apiLikes.find((like) => {
     if (like.item_id.toString() === movie.id.toString()) {
       movie.likes = like.likes;
+      const isLiked = moviesLikedByUser.indexOf(like.item_id.toString());
+      if (isLiked !== -1) {
+        movie.userLiked = true;
+      }
     } else {
       movie.likes = 0;
     }

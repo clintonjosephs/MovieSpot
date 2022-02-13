@@ -13,7 +13,7 @@ const movieItems = (showDetails) => `<div class="col-md-3 animate">
 }</h6>
                             <span class="likeUnit-${showDetails?.id}">
                                 <i class="fa fa-heart likeBtn ${
-  showDetails?.likes > 0 ? 'heart-active' : ''
+  showDetails?.userLiked === true ? 'heart-active' : ''
 }" data-movie-id="${
   showDetails?.id
 }" id="likeBtn-${showDetails?.id}" freshLikeBtn="yes"></i> 
