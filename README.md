@@ -2,7 +2,7 @@
 
 # MovieSpot
 
-> MovieSpot is your favorite spot for the latest and favorite TV shows, shipped with a really cool infinite scroll feature!. You can view the details of the show, "like" a show, and even comment. You can also see other comments which might give you a general idea about what people think about the show.
+> MovieSpot is website for the latest and favorite TV shows, shipped with a really cool infinite scroll feature!. You can view the details of the show, "like" a show, and even comment. You can also see other comments which might give you a general idea about what people think about the show.
 > It is built with HTML, CSS and JavaScript with data from the TvMaze API(tv show data) and the Involvement API(likes and comments)
 
 
