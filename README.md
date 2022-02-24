@@ -13,6 +13,9 @@
 
 ![screenshot](./src/images/presentation.gif)
 
+## Live Demo
+
+[Website Link](https://clintonjosephs.github.io/MovieSpot/)
 
 Additional description about the project and its features.
 
@@ -35,11 +38,6 @@ Additional description about the project and its features.
   - WebHint(linting tool)
   - Stylelint(style linting)
   ```
-
-## Live Demo
-
-[Website Link](https://clintonjosephs.github.io/MovieSpot/)
-
 
 ## Getting Started
 
