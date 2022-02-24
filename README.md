@@ -9,13 +9,13 @@
 ## Video Presentation
 [Presentation Link](https://www.veed.io/view/eb1a75de-f380-49c5-aca7-f7546f984e26)
 
+
+## Live Demo
+[Website Link](https://clintonjosephs.github.io/MovieSpot/)
+
 ## Mini Demo
 
 ![screenshot](./src/images/presentation.gif)
-
-## Live Demo
-
-[Website Link](https://clintonjosephs.github.io/MovieSpot/)
 
 Additional description about the project and its features.
 
